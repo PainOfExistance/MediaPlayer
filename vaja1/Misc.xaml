@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="MediaElement" x:Key="MediaMain">
+        <Setter Property="Margin" Value="0,5,0,5"/>
+        <Setter Property="LoadedBehavior" Value="Manual"/>
+    </Style>
+
+    <Style TargetType="ComboBox" x:Key="ComboBoxBase" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="#151515"/>
+        <Setter Property="Background" Value="#eeeeee"/>
+    </Style>
+
+    <Style TargetType="CheckBox" x:Key="CheckBoxBaseSettings">
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Background" Value="#aabbcc"/>
+        <Setter Property="BorderBrush" Value="#aabbcc"/>
+        <Setter Property="Foreground" Value="#eeeeee"/>
+    </Style>
+</ResourceDictionary>

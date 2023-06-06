@@ -1,0 +1,70 @@
+﻿<Window x:Class="vaja1.orderMediaFile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vaja1"
+        mc:Ignorable="d"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="16"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{Binding title, Mode=TwoWay}" Height="600" Width="500" Icon="resources/bella.png">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ButtonMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="GridMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ListViewMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="TextMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Misc.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Pannels.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="SliderMerged.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Style="{StaticResource GridBase}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Style="{StaticResource BorderBase}"/>
+        <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource BorderBase}"/>
+        <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource BorderBase}"/>
+        <Border Grid.Column="0" Grid.Row="3" Style="{StaticResource BorderBase}"/>
+        <Border Grid.Column="0" Grid.Row="4" Style="{StaticResource BorderBase}"/>
+        <Border Grid.Column="0" Grid.Row="5" Style="{StaticResource BorderBase}"/>
+        <Border Grid.Column="0" Grid.Row="6" Style="{StaticResource BorderBase}"/>
+
+        <TextBlock Style="{StaticResource TextBlockBase}" Grid.Row="0" Grid.Column="0">Avtor</TextBlock>
+        <TextBlock Style="{StaticResource TextBlockBase}" Grid.Row="1" Grid.Column="0">Naslov</TextBlock>
+        <TextBlock Style="{StaticResource TextBlockBase}" Grid.Row="2" Grid.Column="0">Opis</TextBlock>
+        <TextBlock Style="{StaticResource TextBlockBase}" Grid.Row="3" Grid.Column="0">Pot do vsebine</TextBlock>
+        <TextBlock Style="{StaticResource TextBlockBase}" Grid.Row="4" Grid.Column="0">Pot do slike</TextBlock>
+        <TextBlock Style="{StaticResource TextBlockBase}" Grid.Row="5" Grid.Column="0">Žanr</TextBlock>
+
+        <TextBox Name="author" Style="{StaticResource TextBoxBase}" Text="{Binding author, Mode=TwoWay}" Grid.Row="0" Grid.Column="0" />
+        <TextBox Name="title" Style="{StaticResource TextBoxBase}" Text="{Binding title, Mode=TwoWay}" Grid.Row="1" Grid.Column="0" />
+        <TextBox Name="desc" Style="{StaticResource TextBoxBase}" Text="{Binding description, Mode=TwoWay}" Grid.Row="2" Grid.Column="0" />
+        <TextBox Name="path" Style="{StaticResource TextBoxBase}" Text="{Binding path, Mode=TwoWay}" Grid.Row="3" Grid.Column="0" />
+        <StackPanel Style="{StaticResource StackPanelHor}" Grid.Row="4" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Name="img" MouseUp="changeIcon" Source="{Binding imgPath, Mode=TwoWay}"></Image>
+            <TextBox Name="imgPath" Style="{StaticResource TextBoxDer}" Text="{Binding imgPath, Mode=TwoWay}"/>
+        </StackPanel>
+        <TextBlock Name="gen" Style="{StaticResource TextBlockDer}" Grid.Row="5" Grid.Column="0" Text="{Binding genre, Mode=TwoWay}"></TextBlock>
+        <ComboBox SelectionChanged="changeGenre"  
+                  Name="genres" 
+                  Grid.Row="5" Grid.Column="0" Style="{StaticResource ComboBoxBase}"/>
+    </Grid>
+</Window>

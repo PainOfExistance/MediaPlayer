@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="vaja1.UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:vaja1"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Control.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ButtonMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="GridMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ListViewMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="TextMerged.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Misc.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Pannels.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="SliderMerged.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Control.Resources>
+
+    <Grid Style="{StaticResource GridBlack}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <Button Click="loopList" Style="{StaticResource ButtonPannel}">
+                <Image Source="resources/repeat.png" Name="repeat"></Image>
+                <Button.RenderTransform>
+                    <RotateTransform x:Name='MyRotateTransform' Angle='0' CenterX="12" CenterY="12"/>
+                </Button.RenderTransform>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                        Storyboard.TargetName='MyRotateTransform' Storyboard.TargetProperty='(RotateTransform.Angle)' 
+                                        From='0.0' To='360' Duration='0:0:0.3' />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Button Click="sfuffleList" HorizontalAlignment="Left" Style="{StaticResource ButtonPannel}">
+                <Image Source="resources/shuffle.png" Name="shuffle"></Image>
+            </Button>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <Button Style="{StaticResource ButtonBase}" Click = "mediaStop" >
+                <Image Source="resources/stop.png" Name="stop"></Image>
+            </Button>
+            <Button Click="prevTrack" Style="{StaticResource ButtonPannel}">
+                <Image Source="resources/previus.png" Name="prev"></Image>
+            </Button>
+            <Button Click="mediaPlayPause" Name="play" Style="{StaticResource ButtonPannel}" >
+                <Image Source="resources/play.png" Name="playButton"></Image>
+            </Button>
+            <Button Click="nextTrack" Style="{StaticResource ButtonPannel}">
+                <Image Source="resources/next.png" Name="next"></Image>
+            </Button>
+        </DockPanel>
+    </Grid>
+</UserControl>
